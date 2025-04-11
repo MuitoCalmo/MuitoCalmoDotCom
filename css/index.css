@@ -1,0 +1,17 @@
+body{
+    color: rgb(200, 200, 200);
+    background-color: rgb(43, 42, 42);
+}
+
+ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    align-items: center;
+    padding: 16px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
