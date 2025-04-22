@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentação - Eldertide</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 2rem; background: #f9f9f9; color: #333; }
+        h1, h2, h3 { color: #2c3e50; }
+        code { background: #eee; padding: 2px 4px; border-radius: 4px; }
+        ul { margin-top: 0.5rem; }
+        section { margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+    <h1>Documentação dos Scripts - Eldertide (Abril 2025)</h1>
+
+    <section>
+        <h2>📌 Sumário de Sistemas</h2>
+        <ul>
+            <li>FSM (Finite State Machine)</li>
+            <li>Sistema de Pesca (Fishing)</li>
+            <li>Sistema de Inventário</li>
+            <li>Player e Stats (Stamina, Endurance, Combate)</li>
+            <li>Inimigos (Vida e Fugir)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>🧠 FSM (Finite State Machine)</h2>
+        <p><strong>Local:</strong> <code>Scripts/FSM/Core</code> e <code>Scripts/FSM/States</code></p>
+        <p>Controla os estados do jogador de forma modular e escalável.</p>
+        <h3>Estrutura:</h3>
+        <ul>
+            <li><code>State.cs</code>: classe base abstrata de um estado</li>
+            <li><code>StateMachine.cs</code>: gerencia o estado atual</li>
+            <li>Cada estado implementa <code>Enter()</code>, <code>Tick()</code>, <code>Exit()</code></li>
+        </ul>
+        <h3>Estados:</h3>
+        <ul>
+            <li>StandingState</li>
+            <li>CrouchingState</li>
+            <li>JumpingState, LandingState, SprintJumpState</li>
+            <li>SprintState</li>
+            <li>SwimmingState</li>
+            <li>FishingState</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>🎣 Sistema de Pesca</h2>
+        <p><strong>Local:</strong> <code>Scripts/Fishing/</code></p>
+        <ul>
+            <li><code>FishingState.cs</code>: entra em modo de pesca, espera e inicia minigame</li>
+            <li><code>FishingMinigameManager.cs</code>: controla espera aleatória, evento “fisgou”, barra do minigame e adiciona peixe/lixo ao inventário</li>
+        </ul>
+        <p>Requer que a vara esteja equipada via <code>EquipmentManager</code>.</p>
+    </section>
+
+    <section>
+        <h2>🎒 Sistema de Inventário</h2>
+        <p><strong>Local:</strong> <code>Scripts/Inventory/</code></p>
+        <ul>
+            <li><code>InventoryItem.cs</code>: representa um item</li>
+            <li><code>InventoryManager.cs</code>: lista de itens do jogador</li>
+            <li><code>EquipmentManager.cs</code>: item atualmente equipado</li>
+            <li><code>InventoryUIHub.cs</code>: conexão com a UI</li>
+            <li><code>TestInventory.cs</code>: testes</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>🧍‍♂️ Player e Stats</h2>
+        <p><strong>Local:</strong> <code>Scripts/Player/</code></p>
+        <ul>
+            <li><code>Character.cs</code>: script principal do jogador</li>
+            <li><code>PlayerStamina.cs</code> e <code>PlayerEndurance.cs</code>: controlam energia e resistência</li>
+            <li><code>AreaAttack.cs</code>: ataque de área, acionado por animação</li>
+            <li><code>WaterDetector.cs</code>: detecção de entrada na água</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>👾 Inimigos</h2>
+        <p><strong>Local:</strong> <code>Scripts/Enemy/</code></p>
+        <ul>
+            <li><code>EnemyHealth.cs</code>: vida e dano</li>
+            <li><code>EnemyFlee.cs</code>: lógica de fuga</li>
+        </ul>
+        <p>Prontos para expansão com NavMesh ou FSM futura.</p>
+    </section>
+
+    <section>
+        <h2>📌 Observações Finais</h2>
+        <ul>
+            <li>Código organizado em pastas temáticas</li>
+            <li>FSM permite expandir facilmente para farming, escalada, etc</li>
+            <li>Inventário já integrado com pesca e combate</li>
+        </ul>
+    </section>
+</body>
+</html>

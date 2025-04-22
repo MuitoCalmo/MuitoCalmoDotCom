@@ -1,17 +1,104 @@
 body{
-    color: rgb(200, 200, 200);
-    background-color: rgb(43, 42, 42);
+    background-color: #202020;
+    font-family: Arial, sans-serif;
+    color: rgb(233, 233, 233);
 }
-
-ul{
+.logo-container{
     display: flex;
-    justify-content: space-between;
+    padding: 5px;
+    margin: 5px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: rgb(66, 66, 66);
+    border-radius: 10px;
+}
+.logo{
+    padding: 10px;
+    margin: 10px;
+}
+.slogan{
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: top;
+    height: 50vh;
+    font-size: larger;
+}
+.image-container {
+    padding: 5px;
+    margin: 0 auto;
+    max-width: 100vw;
+  }
+  
+  .image-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0.5rem; /* reduz o espaço entre imagens */
     list-style: none;
-    align-items: center;
-    padding: 16px;
-}
+    justify-items: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  
+  
+  .image-row li img {
+    width: 400px;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s;
+  }
+  
+  .image-row li img:hover {
+    transform: scale(1.05);
+  }
 
-a{
-    color: white;
-    text-decoration: none;
-}
+  .media-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 600px;
+    overflow: hidden;
+  }
+  
+  
+  .media-box img {
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+  }
+  
+  .media-box video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;     /* largura fixa */
+    height: 600px;    /* altura fixa */
+    object-fit: cover;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 4px;
+  }
+  
+  
+  .media-box video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .media-box:hover img {
+    opacity: 0;
+  }
+  
+  .media-box:hover video {
+    opacity: 1;
+  }
+  
+  
